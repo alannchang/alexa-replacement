@@ -1,0 +1,4 @@
+selenium
+vosk
+pyaudio
+pyttsx3
