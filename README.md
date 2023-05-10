@@ -34,6 +34,7 @@ Additional Notes:
 - Wasn't able to install the latest version of python on my raspberry pi, so I was not able to utilize match case for the process_command function.  Lots of "elif" as a result.
 - Will incorporate async at some point so that wait times are shorter
 - Saw in the news this morning that youtube is cracking down on adblockers, so will have to deal with that if/when that happens.
+- Spent a long time trying to set up my raspberry pi so that it would run the script at startup but was not able to get it to work.  Maybe in the future...
 
 Credit to Brandon Jacobson's youtube (https://www.youtube.com/@BrandonJacobson) videos for help with installing the libraries and setting up the 
 speech to text and text to speech functionality(Vosk, pyaudio, pyttsx3, etc).  Please check out his videos if you need help with getting those to work.
