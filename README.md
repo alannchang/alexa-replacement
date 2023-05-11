@@ -1,9 +1,11 @@
-Simple python script that utilizes a few libraries to create a voice-activated virtual assistant on the device of your choosing.  
-This is my version of an "open-source Alexa" that focuses on the one feature that I use the most: playing music.  It works by using the Vosk voice recognition library
+Simple python script that utilizes a few libraries to create a voice-activated virtual assistant on the device of your choosing.   
+This is my version of an "open-source Alexa" that focuses on the one feature that I use the most: playing music.  It uses the Vosk voice recognition library
 to interpret the user's voice, pyttsx3 library to provide vocal feedback to the user, and the Selenium engine to navigate and play videos on youtube.
 
 Anyone interested in developing their own music-playing virtual assistant, similar to popular voice assistants, may find this repository beneficial. 
-I made this so I wouldn't have to keep paying my monthly Amazon Music Unlimited subscription and the added privacy from using my own IoT device is also a plus.
+I made this so I wouldn't have to keep paying my monthly Amazon Music Unlimited subscription and the added privacy from using my own IoT device is an added plus.
+
+DEMO VIDEO COMING SOON!
 
 Hardware:
 
