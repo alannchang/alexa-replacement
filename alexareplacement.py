@@ -17,7 +17,7 @@ options = webdriver.ChromeOptions()
 # uBlock origin extension
 # options.add_argument('--load-extension=/home/pi/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.49.2_0')
 # Music mode for youtube extension
-options.add_argument('--load-extension=/home/pi/.config/chromium/Default/Extensions/abbpaepbpakcpipajigmlpnhlnbennna/6.1.1_0')
+options.add_argument('--load-extension=/home/pi/.config/chromium/Default/Extensions/abbpaepbpakcpipajigmlpnhlnbennna/6.1.3_0')
 driver = webdriver.Chrome(options=options)
 
 # OPEN WEBPAGE
@@ -26,11 +26,13 @@ engine.runAndWait()
 driver.get("https://www.youtube.com")
 driver.switch_to.window(driver.window_handles[0])
 
+
 # vosk speech recognition setup
 model = Model(r"/home/pi/Downloads/vosk-model-small-en-us-0.15")
 recognizer = KaldiRecognizer(model, 16000)
 mic = pyaudio.PyAudio()
-# set wake word to whatever you want
+
+# set wake word to word(s) of your choice
 WAKE_WORD = "joker"
 
 def listen_for_wake():
@@ -80,15 +82,16 @@ def search_youtube(query):
   search_box.send_keys(query)
   search_button = driver.find_element(By.ID, 'search-icon-legacy')
   search_button.click()
-  
-  # current wait time required for the program not to crash. Will get better in the future
-  time.sleep(5)
-
-  first_video = driver.find_element(By.CLASS_NAME, 'title-and-badge')
-  title = first_video.text
-  engine.say(f"Now playing {title}")
-  engine.runAndWait()
-  first_video.click()
+  while True:
+    try:
+      first_video = driver.find_element(By.CLASS_NAME, 'title-and-badge')
+      title = first_video.text
+      first_video.click()
+      engine.say(f"Now playing {title}")
+      engine.runAndWait()
+      break
+    except:
+      pass
   
 def process_command(command):
   # do nothing when no sound or ambient sound
