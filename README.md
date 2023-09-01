@@ -5,7 +5,8 @@ to interpret the user's voice, pyttsx3 library to provide vocal feedback to the 
 Anyone interested in developing their own music-playing virtual assistant, similar to popular voice assistants, may find this repository beneficial. 
 I made this so I wouldn't have to keep paying my monthly Amazon Music Unlimited subscription and the added privacy from using my own IoT device is an added plus.
 
-DEMO VIDEO COMING SOON!
+Brief Demo video showcasing the ability to play music:
+https://www.youtube.com/watch?v=SOPgVf_BURg
 
 Hardware:
 
