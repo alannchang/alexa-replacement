@@ -11,6 +11,9 @@ dependencies = [
   "yt-dlp",
 ]
 
+[project.scripts]
+alexa-replacement = "app:main"
+
 [tool.uv]
 # No special configuration needed; uv will manage the virtualenv and lockfile.
 

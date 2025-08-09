@@ -49,8 +49,8 @@ This project uses [`uv`](https://github.com/astral-sh/uv) for fast Python depend
 - Create the virtual environment and lock dependencies:
   - `uv sync`
 
-- Run the script under the managed environment:
-  - `uv run python alexareplacement.py`
+- Run the app under the managed environment:
+  - `uv run alexa-replacement`
 
 Notes:
 - `PyAudio` may require system packages (e.g., `portaudio` dev headers). On Debian/Ubuntu: `sudo apt-get install portaudio19-dev` before syncing.
@@ -62,8 +62,10 @@ Download a Vosk model (e.g., `vosk-model-small-en-us-0.15`) and set `VOSK_MODEL_
 
 ```bash
 export VOSK_MODEL_PATH=/path/to/vosk-model-small-en-us-0.15
-uv run python alexareplacement.py
+uv run alexa-replacement
 ```
+
+Optional: if you activate the environment (`uv venv && source .venv/bin/activate`), you can run the command directly as `alexa-replacement`.
 
 You can find official models at the Vosk website: `https://alphacephei.com/vosk/models`.
 Download and extract one appropriate for your device and language (e.g., English small model), and point `VOSK_MODEL_PATH` to the extracted directory (it should contain subdirectories like `conf`, `am`, etc.).
