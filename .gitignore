@@ -1,0 +1,19 @@
+# Vosk models (large)
+vosk-model*/
+vosk-model-*/
+
+# Audio downloads
+*.mp3
+*.m4a
+*.webm
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# uv
+.uv/
+uv.lock.bak
+

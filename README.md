@@ -65,6 +65,9 @@ export VOSK_MODEL_PATH=/path/to/vosk-model-small-en-us-0.15
 uv run python alexareplacement.py
 ```
 
+You can find official models at the Vosk website: `https://alphacephei.com/vosk/models`.
+Download and extract one appropriate for your device and language (e.g., English small model), and point `VOSK_MODEL_PATH` to the extracted directory (it should contain subdirectories like `conf`, `am`, etc.).
+
 Voice commands:
 - "play <query>": streams the top YouTube audio match
 - "download <query>": downloads the top YouTube match as MP3
