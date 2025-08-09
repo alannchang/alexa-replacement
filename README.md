@@ -41,3 +41,20 @@ Additional Notes:
 
 Credit to Brandon Jacobson's youtube (https://www.youtube.com/@BrandonJacobson) videos for help with installing the libraries and setting up the 
 speech to text and text to speech functionality(Vosk, pyaudio, pyttsx3, etc).  Please check out his videos if you need help with getting those to work.
+
+## Using uv for dependency management
+
+This project now supports [`uv`](https://github.com/astral-sh/uv) for fast Python dependency management via `pyproject.toml`.
+
+- Install uv (Linux/macOS):
+  - `curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+- Create the virtual environment and lock dependencies:
+  - `uv sync`
+
+- Run the script under the managed environment:
+  - `uv run python alexareplacement.py`
+
+Notes:
+- `PyAudio` may require system packages (e.g., `portaudio` dev headers). On Debian/Ubuntu: `sudo apt-get install portaudio19-dev` before syncing.
+- `selenium` with Chrome requires a compatible Chrome/Chromium and ChromeDriver installed on your system.
