@@ -1,14 +1,14 @@
 [project]
 name = "alexa-replacement"
 version = "0.1.0"
-description = "Voice-activated YouTube assistant using Vosk, Selenium, PyAudio, and pyttsx3"
+description = "Voice-activated YouTube assistant using Vosk, yt-dlp, PyAudio, and pyttsx3"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-  "selenium",
   "vosk",
   "PyAudio",
   "pyttsx3",
+  "yt-dlp",
 ]
 
 [tool.uv]

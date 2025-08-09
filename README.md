@@ -1,6 +1,6 @@
 Simple python script that utilizes a few libraries to create a voice-activated virtual assistant on the device of your choosing.   
-This is my version of an "open-source Alexa" that focuses on the one feature that I use the most: playing music.  It uses the Vosk voice recognition library
-to interpret the user's voice, pyttsx3 library to provide vocal feedback to the user, and the Selenium engine to navigate and play videos on youtube.
+This is my version of an "open-source Alexa" that focuses on the one feature that I use the most: playing music. It uses the Vosk voice recognition library
+to interpret the user's voice, the pyttsx3 library to provide vocal feedback to the user, and queries YouTube via `yt-dlp` to stream or download audio without a browser.
 
 Anyone interested in developing their own music-playing virtual assistant, similar to popular voice assistants, may find this repository beneficial. 
 I made this so I wouldn't have to keep paying my monthly Amazon Music Unlimited subscription and the added privacy from using my own IoT device is an added plus.
@@ -24,11 +24,8 @@ https://www.amazon.com/Microphone-Gooseneck-Universal-Compatible-CGS-M1/dp/B08M3
 
 Software:
 
-Music Mode for Youtube chrome extension - extension that has tons of features that help make the music listening experience better (block ads, etc.)
-https://chrome.google.com/webstore/detail/music-mode-for-youtube/abbpaepbpakcpipajigmlpnhlnbennna
-
-ChromeDriver - required for Selenium if you don't use any driver manager
-https://chromedriver.chromium.org/downloads
+- `ffmpeg` (for `ffplay` used to stream audio) — install via your OS package manager
+- `yt-dlp` (installed via uv/pyproject)
 
 
 This is not intended to be a major project for me, but I will try my best when I have time to help anyone who is trying to recreate this for their own purposes.
@@ -44,7 +41,7 @@ speech to text and text to speech functionality(Vosk, pyaudio, pyttsx3, etc).  P
 
 ## Using uv for dependency management
 
-This project now supports [`uv`](https://github.com/astral-sh/uv) for fast Python dependency management via `pyproject.toml`.
+This project uses [`uv`](https://github.com/astral-sh/uv) for fast Python dependency management via `pyproject.toml`.
 
 - Install uv (Linux/macOS):
   - `curl -LsSf https://astral.sh/uv/install.sh | sh`
@@ -57,4 +54,19 @@ This project now supports [`uv`](https://github.com/astral-sh/uv) for fast Pytho
 
 Notes:
 - `PyAudio` may require system packages (e.g., `portaudio` dev headers). On Debian/Ubuntu: `sudo apt-get install portaudio19-dev` before syncing.
-- `selenium` with Chrome requires a compatible Chrome/Chromium and ChromeDriver installed on your system.
+- `ffmpeg` is required (`ffplay` is used for playback). On Debian/Ubuntu: `sudo apt-get install ffmpeg`.
+
+### Configure the Vosk model path
+
+Download a Vosk model (e.g., `vosk-model-small-en-us-0.15`) and set `VOSK_MODEL_PATH` to the extracted folder before running:
+
+```bash
+export VOSK_MODEL_PATH=/path/to/vosk-model-small-en-us-0.15
+uv run python alexareplacement.py
+```
+
+Voice commands:
+- "play <query>": streams the top YouTube audio match
+- "download <query>": downloads the top YouTube match as MP3
+- "pause" / "unpause": pause/resume playback (process-level pause)
+- "stop": stop playback
