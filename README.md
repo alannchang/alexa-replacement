@@ -56,6 +56,26 @@ Notes:
 - `PyAudio` may require system packages (e.g., `portaudio` dev headers). On Debian/Ubuntu: `sudo apt-get install portaudio19-dev` before syncing.
 - `ffmpeg` is required (`ffplay` is used for playback). On Debian/Ubuntu: `sudo apt-get install ffmpeg`.
 
+### Optional: Piper TTS (more natural voice)
+
+You can switch to [Piper TTS](`https://github.com/rhasspy/piper`) for higher-quality TTS, which works well on Raspberry Pi.
+
+Install Piper (system binary) and download a voice model (e.g., `en_US-kusal-low.onnx` and its `.json`):
+
+```bash
+# Example (Debian/Ubuntu); see Piper docs for other platforms
+sudo apt-get install piper
+# or download a prebuilt binary from Piper releases
+
+# Set env to enable Piper backend
+export TTS_BACKEND=piper
+export PIPER_MODEL_PATH=/path/to/en_US-kusal-low.onnx
+# Optional (if separate config json):
+export PIPER_CONFIG_PATH=/path/to/en_US-kusal-low.onnx.json
+
+uv run alexa-replacement
+```
+
 ### Configure the Vosk model path
 
 Download a Vosk model (e.g., `vosk-model-small-en-us-0.15`) and set `VOSK_MODEL_PATH` to the extracted folder before running:

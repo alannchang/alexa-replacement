@@ -1,9 +1,9 @@
 import subprocess
-import pyttsx3
 
 from commands import parse_command
 from player import PlayerControl
 from recognizer import SpeechRecognizer
+from tts import get_tts_engine
 
 
 WAKE_WORD = "joker"
@@ -11,14 +11,12 @@ WAKE_WORD = "joker"
 
 class App:
     def __init__(self) -> None:
-        self.tts = pyttsx3.init()
-        self.tts.setProperty('voice', 'en-us')
+        self.tts = get_tts_engine()
         self.recognizer = SpeechRecognizer()
         self.player = PlayerControl()
 
     def say(self, text: str) -> None:
         self.tts.say(text)
-        self.tts.runAndWait()
 
     def handle_command(self, command: str) -> None:
         action, arg = parse_command(command)
