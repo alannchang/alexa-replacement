@@ -58,14 +58,15 @@ Notes:
 
 ### Optional: Piper TTS (more natural voice)
 
-You can switch to [Piper TTS](`https://github.com/rhasspy/piper`) for higher-quality TTS, which works well on Raspberry Pi.
+You can switch to Piper TTS for higher-quality TTS, which works well on Raspberry Pi. Current upstream repo: [OHF-Voice/piper1-gpl](https://github.com/OHF-Voice/piper1-gpl).
 
-Install Piper (system binary) and download a voice model (e.g., `en_US-kusal-low.onnx` and its `.json`):
+Install Piper either as a system binary or via pip, then download a voice model (e.g., `en_US-kusal-low.onnx` and its `.json`):
 
 ```bash
 # Example (Debian/Ubuntu); see Piper docs for other platforms
 sudo apt-get install piper
-# or download a prebuilt binary from Piper releases
+# or install the Python package (provides a `piper` CLI in the venv)
+uv run pip install piper-tts
 
 # Set env to enable Piper backend
 export TTS_BACKEND=piper
